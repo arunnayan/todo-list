@@ -22,7 +22,7 @@ class App extends Component {
     e.preventDefault(); // not to update field when browser refresh
     const newItem = {
       id: this.state.id,
-      item: this.state.item
+      title: this.state.item
     };
     const updatedItems = [...this.state.items, newItem];
     this.setState(
