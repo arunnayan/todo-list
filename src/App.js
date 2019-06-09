@@ -14,10 +14,26 @@ class App extends Component {
   };
 
   handleChange = e => {
-    console.log("handle change");
+    this.setState({
+      item: e.target.value
+    });
   };
   handleSubmit = e => {
-    console.log("handle submit");
+    e.preventDefault(); // not to update field when browser refresh
+    const newItem = {
+      id: this.state.id,
+      item: this.state.item
+    };
+    const updatedItems = [...this.state.items, newItem];
+    this.setState(
+      {
+        items: updatedItems,
+        id: uuid(),
+        item: "",
+        editItem: false
+      },
+      () => console.log(this.state)
+    );
   };
   clearList = () => {
     console.log("handle change");
